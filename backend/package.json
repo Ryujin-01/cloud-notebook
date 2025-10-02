@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/Ryujin-01/cloud-notebook#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.3"
   },
   "devDependencies": {
