@@ -1,0 +1,26 @@
+{
+  "name": "cloud-notebook-backend",
+  "version": "1.0.0",
+  "description": "Backend for cloud-notebook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryujin-01/cloud-notebook.git"
+  },
+  "author": "Ryujin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ryujin-01/cloud-notebook/issues"
+  },
+  "homepage": "https://github.com/Ryujin-01/cloud-notebook#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
