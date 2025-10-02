@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Ryujin-01/cloud-notebook#readme",
   "dependencies": {
     "express": "^5.1.0",
+    "express-validator": "^7.2.1",
     "mongoose": "^8.18.3"
   },
   "devDependencies": {
