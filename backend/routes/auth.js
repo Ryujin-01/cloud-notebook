@@ -33,7 +33,7 @@ router.post(
     try {
       // Check whether with the same email already exists,
       let user = await User.findOne({ email: req.body.email.toLowerCase() });
-      console.log(user);
+      //   console.log(user);
       if (user) {
         return res
           .status(400)
@@ -56,12 +56,11 @@ router.post(
         },
       };
 
-      // Give an authentication token to the user.
-      const authToken = jwt.sign(data, JWT_SECRET);
+      // Give an authentication token to the user using user id.
+      const authToken = jwt.sign(data, JWT_SECRET); // Signing the payload with JWT_SECRET
 
       console.log("New account created !");
       console.log(authToken);
-      //   res.json(user);
       res.json({ authToken });
     } catch (err) {
       // If some error occured
@@ -97,7 +96,7 @@ router.post(
         return res.status(400).json("Please login with correct credentials");
       }
 
-      const comparePass = await bcrypt.compare(password, user.password); // Compares the current password hash with the database password hash and gives true of false.
+      const comparePass = await bcrypt.compare(password, user.password); // Compares the current password hash with the database password hash and returns true or false.
       if (!comparePass) {
         return res.status(400).json("Please login with correct credentials");
       }
@@ -109,7 +108,7 @@ router.post(
         },
       };
 
-      const authToken = jwt.sign(data, JWT_SECRET);
+      const authToken = jwt.sign(data, JWT_SECRET); // Giving an auth token to the user.
 
       console.log("Account Matched");
       console.log(authToken);
@@ -126,6 +125,9 @@ router.post(
 router.post("/getuser", fetchUser, async (req, res) => {
   try {
     userId = req.user.id;
+
+    // findById(userId) → searches the database for a document with the _id field equal to userId.
+    // .select() allows you to include or exclude specific fields from the document. "-password" → the minus sign means exclude the password field from the result.
     let user = await User.findById(userId).select("-password");
     res.send(user);
   } catch (error) {

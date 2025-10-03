@@ -14,7 +14,7 @@ const fetchUser = (req, res, next) => {
   }
 
   try {
-    const data = jwt.verify(token, JWT_SECRET); // Verifies the token using JWT_SECRET
+    const data = jwt.verify(token, JWT_SECRET); // Verifies the token using the signature "JWT_SECRET"
     req.user = data.user; // If the verification is true, return the payload i.e. the user data that we signed, the user.id
     next(); // Calls the next function
   } catch (error) {
